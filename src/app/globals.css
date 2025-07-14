@@ -625,7 +625,7 @@ body {
   height: 0;
   background-color: hsl(var(--primary));
   transform: translateX(-50%);
-  transition: height 0.5s ease-out;
+  transition: height 0.3s ease-out;
   z-index: 5;
 }
 
@@ -633,8 +633,4 @@ body {
   .timeline-line {
     left: 50%;
   }
-}
-
-.timeline-item:hover .timeline-line {
-  height: 100%;
 }

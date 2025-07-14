@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Briefcase, GraduationCap, CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -60,7 +62,6 @@ const TimelineCard = ({ item, index }: { item: (typeof timelineData)[0], index: 
   return (
     <div className={cn("timeline-item group", isOdd && "md:ml-auto")}>
       <div className="timeline-dot group-hover:bg-primary transition-colors duration-300" />
-      <div className="timeline-line" />
       <Card className="timeline-card border-primary/20 shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:border-primary">
         <CardHeader>
           <div className={cn("flex items-center gap-4", isOdd && "md:flex-row-reverse")}>
@@ -86,14 +87,38 @@ const TimelineCard = ({ item, index }: { item: (typeof timelineData)[0], index: 
 };
 
 export function ExperienceSection() {
+  const [lineHeight, setLineHeight] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (containerRef.current && timelineRef.current) {
+        const { top } = containerRef.current.getBoundingClientRect();
+        const timelineHeight = timelineRef.current.offsetHeight;
+        const windowHeight = window.innerHeight;
+
+        const scrollPercent = Math.max(0, Math.min(1, (windowHeight - top) / (windowHeight + timelineHeight / 2)));
+        
+        setLineHeight(scrollPercent * timelineHeight);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="experience" className="bg-secondary py-16 md:py-24">
+    <section id="experience" ref={containerRef} className="bg-secondary py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">Career & Education</h2>
           <p className="mt-2 text-lg text-muted-foreground">My professional and academic milestones.</p>
         </div>
-        <div className="timeline-container">
+        <div className="timeline-container" ref={timelineRef}>
+           <div className="timeline-line" style={{ height: `${lineHeight}px` }} />
           {timelineData.map((item, index) => (
             <TimelineCard key={index} item={item} index={index} />
           ))}
