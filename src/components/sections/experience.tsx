@@ -1,73 +1,101 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { Briefcase, GraduationCap, CheckCircle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-const timelineItems = [
+const timelineData = [
   {
     type: 'experience',
-    icon: <Briefcase className="h-5 w-5" />,
+    icon: <Briefcase className="h-6 w-6" />,
     date: 'Present',
     title: 'Backend Developer Intern',
     company: 'Self-Employed',
-    description: 'Working with React, Node.js, Express, and MongoDB to build robust web applications.',
+    items: [
+      'Working with React and Node.js',
+      'Building RESTful APIs with Express',
+      'Database management with MongoDB'
+    ]
   },
   {
     type: 'experience',
-    icon: <Briefcase className="h-5 w-5" />,
+    icon: <Briefcase className="h-6 w-6" />,
     date: 'Internship',
     title: 'Cyber Security Researcher',
     company: 'ZetPeak',
-    description: 'Explored various cyber security research tools and best practices to identify and mitigate vulnerabilities.',
+    items: [
+        'Explored various cyber security tools',
+        'Learned best practices for vulnerability mitigation',
+        'Contributed to security assessments'
+    ]
   },
   {
     type: 'experience',
-    icon: <Briefcase className="h-5 w-5" />,
+    icon: <Briefcase className="h-6 w-6" />,
     date: 'Internship',
     title: 'Java Developer',
     company: 'Bharat Intern',
-    description: 'Developed a full-featured Online Quiz Application using Java, including separate interfaces for admin and student users.',
+    items: [
+        'Developed a full-featured Online Quiz App',
+        'Created separate interfaces for admin and student users',
+        'Implemented core quiz logic in Java'
+    ]
   },
   {
     type: 'education',
-    icon: <GraduationCap className="h-5 w-5" />,
+    icon: <GraduationCap className="h-6 w-6" />,
     date: '2020 - 2024',
     title: 'B.Tech in Computer Science',
     company: 'Purnea College of Engineering',
-    description: 'Graduated with a CGPA of 7.95, gaining a strong foundation in computer science fundamentals.',
+    items: [
+        'Graduated with a CGPA of 7.95',
+        'Strong foundation in CS fundamentals',
+        'Specialized in software engineering'
+    ]
   },
 ];
+
+const TimelineCard = ({ item, index }: { item: (typeof timelineData)[0], index: number }) => {
+  const isOdd = index % 2 !== 0;
+
+  return (
+    <div className={cn("timeline-item group", isOdd && "md:ml-auto")}>
+      <div className="timeline-dot group-hover:bg-primary transition-colors duration-300" />
+      <div className="timeline-line" />
+      <Card className="timeline-card border-primary/20 shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:border-primary">
+        <CardHeader>
+          <div className={cn("flex items-center gap-4", isOdd && "md:flex-row-reverse")}>
+            <p className="text-sm font-semibold text-primary">{item.date}</p>
+            <div className="flex-grow border-t border-dashed"></div>
+          </div>
+          <CardTitle className="font-headline text-2xl text-accent">{item.title}</CardTitle>
+          <CardDescription className="font-semibold">{item.company}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ul className="space-y-2 text-muted-foreground">
+            {item.items.map((point, i) => (
+              <li key={i} className={cn("flex items-center gap-2", isOdd && "md:justify-end")}>
+                <CheckCircle className="h-4 w-4 text-primary/70 shrink-0" />
+                <span className={cn(isOdd && "md:text-right")}>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
 
 export function ExperienceSection() {
   return (
     <section id="experience" className="bg-secondary py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">Career & Education</h2>
           <p className="mt-2 text-lg text-muted-foreground">My professional and academic milestones.</p>
         </div>
-        <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2"></div>
-          {timelineItems.map((item, index) => (
-            <div key={index} className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-              <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                <Card className={`w-full shadow-md hover:shadow-xl transition-shadow duration-300 ${index % 2 === 0 ? 'text-left' : 'md:text-right'}`}>
-                  <CardHeader>
-                    <div className={`flex items-center gap-4 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
-                      <p className="text-sm font-semibold text-primary">{item.date}</p>
-                      <div className="flex-grow border-t"></div>
-                    </div>
-                    <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
-                    <CardDescription>{item.company}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div className="absolute left-1/2 -translate-x-1/2 bg-background border-4 border-primary rounded-full p-2">
-                {item.icon}
-              </div>
-            </div>
+        <div className="timeline-container">
+          {timelineData.map((item, index) => (
+            <TimelineCard key={index} item={item} index={index} />
           ))}
         </div>
       </div>

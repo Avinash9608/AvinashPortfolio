@@ -539,3 +539,102 @@ body {
 .skill-card-wrapper:hover::before {
   transform: rotate(360deg);
 }
+
+
+/* Experience Section */
+.timeline-container {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.25rem;
+  width: 4px;
+  height: 100%;
+  background-color: hsl(var(--border));
+  transform: translateX(-50%);
+}
+
+@media (min-width: 768px) {
+  .timeline-container::before {
+    left: 50%;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 3rem;
+}
+
+@media (min-width: 768px) {
+  .timeline-item {
+    padding-left: 0;
+    width: 50%;
+  }
+
+  .timeline-item:nth-child(even) {
+    margin-left: 50%;
+    padding-left: 2.5rem;
+  }
+  
+  .timeline-item:nth-child(odd) {
+    padding-right: 2.5rem;
+    text-align: right;
+  }
+}
+
+.timeline-dot {
+  content: '';
+  position: absolute;
+  top: 0.25rem;
+  left: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--background));
+  border: 4px solid hsl(var(--primary));
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .timeline-dot {
+    left: 50%;
+  }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.timeline-card {
+  animation: float-up 4s ease-in-out infinite;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 1.25rem;
+  width: 4px;
+  height: 0;
+  background-color: hsl(var(--primary));
+  transform: translateX(-50%);
+  transition: height 0.5s ease-out;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+  }
+}
+
+.timeline-item:hover .timeline-line {
+  height: 100%;
+}
