@@ -45,13 +45,13 @@ const projects = [
     aiHint: 'blog website'
   },
   {
-    title: 'GrameenBharat',
-    description: 'An e-commerce platform focused on rural products, connecting local artisans to a wider market.',
-    image: 'https://images.unsplash.com/photo-1698864656701-557a5840239b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUwfHxHcmFtZWVuJTIwQmhhcmF0fGVufDB8fDB8fHww',
-    tags: ['E-commerce', 'React', 'Node.js'],
-    github: '#',
-    live: 'https://grameenbharat.vercel.app/',
-    aiHint: 'ecommerce platform'
+    title: 'InfiniTech Solutions',
+    description: 'A modern and professional website for an IT solutions and services company.',
+    image: 'https://placehold.co/600x400.png',
+    tags: ['React', 'IT Service', 'Website'],
+    github: 'https://github.com/Avinash9608/InfiniTech-Solutions.git',
+    live: 'https://infini-tech-solutions.vercel.app/',
+    aiHint: 'IT solutions'
   },
     {
     title: 'Online Food Delivery App',
