@@ -659,7 +659,7 @@ body {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background: linear-gradient(360deg, #330b29 0%, rgba(48, 11, 51, 0) 97.51%);
+	background: linear-gradient(360deg, hsl(var(--primary) / 0.1), rgba(48, 11, 51, 0) 97.51%);
 	transform: matrix(1, 0, 0, -1, 0, 0);
 	opacity: .2;
 }
@@ -667,24 +667,56 @@ body {
   opacity: 0.4;
 }
 
-.roadmap-title {
-	display: inline-block;
-	font-size: 14px;
-	font-weight: 700;
-	text-transform: uppercase;
-	margin-bottom: 1.5rem;
-	letter-spacing: 0.1em;
+.roadmap-item {
+  position: relative;
+  padding-left: 3rem; /* Space for the line and icon */
+  padding-bottom: 2rem;
+  border-left: 2px solid;
 }
-.roadmap-title-primary { color: hsl(var(--primary)); }
-.roadmap-title-accent { color: hsl(var(--accent)); }
-.roadmap-title-destructive { color: hsl(var(--destructive)); }
+.roadmap-item:last-child {
+  border-left: 2px solid transparent;
+  padding-bottom: 0;
+}
+.roadmap-icon-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(-50%);
+  background-color: hsl(var(--secondary));
+  padding: 0.25rem;
+  border-radius: 9999px;
+}
+.roadmap-icon-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  color: white;
+}
+.bg-primary-grad { background-image: linear-gradient(to top right, hsl(var(--primary)), hsl(var(--accent))); }
+.bg-accent-grad { background-image: linear-gradient(to top right, hsl(var(--accent)), hsl(var(--destructive))); }
+.bg-destructive-grad { background-image: linear-gradient(to top right, hsl(var(--destructive)), hsl(var(--primary))); }
 
+
+.roadmap-content .date {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
 .roadmap-content .title {
-  font-size: 20px;
+  font-size: 1.25rem; /* 20px */
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
   color: hsl(var(--foreground));
 }
+
+.border-primary-c { border-color: hsl(var(--primary)); }
+.text-primary-c { color: hsl(var(--primary)); }
+.border-accent-c { border-color: hsl(var(--accent)); }
+.text-accent-c { color: hsl(var(--accent)); }
+.border-destructive-c { border-color: hsl(var(--destructive)); }
+.text-destructive-c { color: hsl(var(--destructive)); }
 
 @keyframes rotate {
     0% {
