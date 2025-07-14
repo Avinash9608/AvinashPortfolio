@@ -9,31 +9,31 @@ import { Badge } from '@/components/ui/badge';
 
 const projects = [
   {
-    title: 'Online Quiz Application',
-    description: 'A robust quiz platform with separate admin and student modules, built with Java and SQL.',
+    title: 'Publicity Poster',
+    description: 'A platform to generate publicity posters with Nodemailer and Twilio integration.',
     image: 'https://placehold.co/600x400.png',
-    tags: ['Java', 'SQL', 'Web App'],
-    github: '#',
-    live: '#',
-    aiHint: 'quiz application'
+    tags: ['TypeScript', 'Twilio', 'API', 'Nodemailer'],
+    github: 'https://github.com/Avinash9608/Poster.git',
+    live: 'https://poster-self.vercel.app/',
+    aiHint: 'publicity poster'
   },
   {
-    title: 'Online Food Delivery App',
-    description: 'A secure food delivery service featuring email validation and password encryption.',
+    title: 'Readymate Template',
+    description: 'A responsive and ready-to-use website template for various business needs.',
     image: 'https://placehold.co/600x400.png',
-    tags: ['React', 'Node.js', 'Security'],
-    github: '#',
-    live: '#',
-    aiHint: 'food delivery'
+    tags: ['React', 'Template', 'Frontend'],
+    github: 'https://github.com/Avinash9608/ReadymateTemplate.git',
+    live: 'https://readymate-template-alfd.vercel.app/',
+    aiHint: 'website template'
   },
   {
-    title: 'Movie Website',
-    description: 'A responsive website for browsing and discovering movies, built with modern frontend tech.',
+    title: 'Wedding Landing Page',
+    description: 'A beautiful and responsive landing page template for wedding invitations.',
     image: 'https://placehold.co/600x400.png',
-    tags: ['React', 'API', 'Frontend'],
-    github: '#',
-    live: '#',
-    aiHint: 'movie streaming'
+    tags: ['SaaS', 'Template', 'React'],
+    github: '#', // Not provided for this one
+    live: 'https://wedding-landing-page-amber.vercel.app/',
+    aiHint: 'wedding website'
   },
   {
     title: 'Blogging Platform',
@@ -52,6 +52,15 @@ const projects = [
     github: '#',
     live: '#',
     aiHint: 'ecommerce platform'
+  },
+    {
+    title: 'Online Food Delivery App',
+    description: 'A secure food delivery service featuring email validation and password encryption.',
+    image: 'https://placehold.co/600x400.png',
+    tags: ['React', 'Node.js', 'Security'],
+    github: '#',
+    live: '#',
+    aiHint: 'food delivery'
   },
 ];
 
@@ -95,12 +104,12 @@ export function ProjectsSection() {
                   <p className="text-sm text-gray-200 mb-4">{project.description}</p>
                   <div className="flex justify-start gap-4">
                     <Link href={project.github} target="_blank">
-                      <Button variant="outline" size="sm" className="bg-white/10 text-white border-white/20 hover:bg-white/20">
+                      <Button variant="outline" size="sm" className="bg-white/10 text-white border-white/20 hover:bg-white/20" disabled={project.github === '#'}>
                         <Github className="mr-2 h-4 w-4" /> GitHub
                       </Button>
                     </Link>
                     <Link href={project.live} target="_blank">
-                      <Button variant="default" size="sm">
+                      <Button variant="default" size="sm" disabled={project.live === '#'}>
                         Live Demo <ExternalLink className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
@@ -109,6 +118,14 @@ export function ProjectsSection() {
               </div>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center mt-16">
+          <Link href="https://github.com/Avinash9608" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" variant="outline">
+              View More on GitHub <Github className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
 
         <div className="mt-20">
