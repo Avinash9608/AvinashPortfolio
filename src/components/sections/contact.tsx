@@ -9,10 +9,10 @@ import { Linkedin, Github, Twitter, Mail, Send } from 'lucide-react';
 import Link from 'next/link';
 
 const socialLinks = [
-  { name: 'LinkedIn', icon: <Linkedin />, url: 'https://www.linkedin.com/in/avinash-kumar-b58a15247/' },
-  { name: 'GitHub', icon: <Github />, url: 'https://github.com/CoderAvinash1' },
-  { name: 'Twitter', icon: <Twitter />, url: '#' },
-  { name: 'Email', icon: <Mail />, url: 'mailto:webdevak02@gmail.com' },
+  { name: 'LinkedIn', icon: <Linkedin />, url: 'https://www.linkedin.com/in/avinash-kumar-653001213/' },
+  { name: 'GitHub', icon: <Github />, url: 'https://github.com/Avinash9608' },
+  { name: 'Twitter', icon: <Twitter />, url: 'https://x.com/Avinashmadhuka' },
+  { name: 'Email', icon: <Mail />, url: 'mailto:avinashmadhukar4@gmail.com' },
 ];
 
 export function ContactSection() {
