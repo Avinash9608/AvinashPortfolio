@@ -537,5 +537,5 @@ body {
 }
 
 .skill-card-wrapper:hover::before {
-  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+  transform: rotate(360deg);
 }
