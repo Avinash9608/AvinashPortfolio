@@ -44,7 +44,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2 text-2xl font-bold font-headline">
             <Code className="w-8 h-8 text-primary" />
             <span className="text-primary">Avinash</span>
-            <span>Kumar</span>
+            <span className={cn(isScrolled ? 'text-foreground' : 'text-white')}>Kumar</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-1">
@@ -53,7 +53,10 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="px-3 py-2 rounded-md text-sm font-medium text-foreground hover:bg-accent/50 hover:text-accent-foreground transition-colors"
+                className={cn(
+                  "px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                  isScrolled ? 'text-foreground hover:bg-accent/50 hover:text-accent-foreground' : 'text-white hover:bg-white/10'
+                )}
               >
                 {link.label}
               </Link>
@@ -63,7 +66,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <div className="md:hidden">
-              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className={cn(!isScrolled && 'text-white hover:bg-white/10 hover:text-white')}>
                 {isMenuOpen ? <X /> : <Menu />}
                 <span className="sr-only">Toggle menu</span>
               </Button>
