@@ -197,7 +197,10 @@ export function ProjectsSection() {
         </div>
 
         <div className="mt-20">
-            <h3 className="text-2xl font-bold font-headline text-center mb-8">Currently Working On</h3>
+            <h3 className="text-2xl font-bold font-headline text-center mb-4">Currently Working On</h3>
+            <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-8">
+              Alongside my projects, I'm actively exploring the latest AI technologies to enhance my backend development skills and build smarter, more efficient applications.
+            </p>
             <div className="max-w-2xl mx-auto space-y-8">
                 {ongoingProjects.map((project, index) => (
                     <AnimatedProgressCard key={index} project={project} />
