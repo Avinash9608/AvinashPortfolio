@@ -71,7 +71,7 @@ body {
     @apply bg-background text-foreground;
   }
   section {
-    @apply w-full py-12 md:py-24 lg:py-32;
+    @apply w-full;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
@@ -121,4 +121,51 @@ body {
 	100% {
 		transform: translatey(0px);
 	}
+}
+
+/* User's hero section styles */
+.hero-section {
+  font-family: 'Arima Madurai', cursive;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: white;
+  display: flex;
+  background-color: #363636;
+}
+
+.hero-section .text-section {
+  width: 50%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: 8rem;
+  font-family: 'Arima Madurai', cursive;
+}
+
+.hero-section p {
+  max-width: 500px;
+  line-height: 160%;
+}
+
+.hero-section a {
+  display: block;
+  padding: 0.4em;
+  color: #8dd5f7;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.hero-section .img {
+  width: 50%;
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1525550557089-27c1bfedd06c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+  background-position: top left;
+  background-size: cover;
 }
