@@ -568,22 +568,22 @@ body {
   position: relative;
   margin-bottom: 2rem;
   padding-left: 3rem;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .timeline-item {
     padding-left: 0;
     width: 50%;
+    padding-right: 2.5rem;
+    text-align: right;
   }
 
   .timeline-item:nth-child(even) {
     margin-left: 50%;
     padding-left: 2.5rem;
-  }
-  
-  .timeline-item:nth-child(odd) {
-    padding-right: 2.5rem;
-    text-align: right;
+    padding-right: 0;
+    text-align: left;
   }
 }
 
@@ -605,7 +605,16 @@ body {
   .timeline-dot {
     left: 50%;
   }
+  
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: 0;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-dot {
+    left: 100%;
+  }
 }
+
 
 @keyframes float-up {
   0% { transform: translateY(0); }

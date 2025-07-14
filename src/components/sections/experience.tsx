@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -60,7 +61,7 @@ const TimelineCard = ({ item, index }: { item: (typeof timelineData)[0], index: 
   const isOdd = index % 2 !== 0;
 
   return (
-    <div className={cn("timeline-item group", isOdd && "md:ml-auto")}>
+    <div className="timeline-item group">
       <div className="timeline-dot group-hover:bg-primary transition-colors duration-300" />
       <Card className="timeline-card border-primary/20 shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:border-primary">
         <CardHeader>
@@ -74,8 +75,8 @@ const TimelineCard = ({ item, index }: { item: (typeof timelineData)[0], index: 
         <CardContent>
           <ul className="space-y-2 text-muted-foreground">
             {item.items.map((point, i) => (
-              <li key={i} className={cn("flex items-center gap-2", isOdd && "md:justify-end")}>
-                <CheckCircle className="h-4 w-4 text-primary/70 shrink-0" />
+              <li key={i} className={cn("flex items-start gap-2", isOdd && "md:text-right md:justify-end")}>
+                 <CheckCircle className="h-4 w-4 text-primary/70 shrink-0 mt-1" />
                 <span className={cn(isOdd && "md:text-right")}>{point}</span>
               </li>
             ))}
@@ -114,7 +115,7 @@ export function ExperienceSection() {
     <section id="experience" ref={containerRef} className="bg-secondary py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">Career & Education</h2>
+          <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">Career &amp; Education</h2>
           <p className="mt-2 text-lg text-muted-foreground">My professional and academic milestones.</p>
         </div>
         <div className="timeline-container" ref={timelineRef}>
