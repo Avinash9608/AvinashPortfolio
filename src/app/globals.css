@@ -729,3 +729,49 @@ body {
 .loader {
     animation: rotate 1s linear infinite;
 }
+
+
+/* Progress Card for Ongoing Projects */
+.progress-card-wrapper {
+  position: relative;
+  padding: 2px;
+  border-radius: 0.75rem; /* 12px */
+  overflow: hidden;
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+  transition: all 0.3s ease;
+}
+
+.progress-card-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    hsl(var(--primary) / 0.5) 0deg,
+    hsl(var(--accent) / 0.7) 50deg,
+    hsl(var(--destructive) / 0.5) 100deg,
+    transparent 150deg
+  );
+  animation: rotate 5s linear infinite;
+}
+
+.progress-card-wrapper:hover::before {
+  animation-duration: 3s;
+}
+
+.progress-card {
+  background-color: hsl(var(--card));
+  padding: 1.5rem;
+  border-radius: calc(0.75rem - 2px);
+  position: relative;
+  z-index: 1;
+}
+
+.dark .progress-card {
+  background-color: hsl(var(--background));
+}
+
