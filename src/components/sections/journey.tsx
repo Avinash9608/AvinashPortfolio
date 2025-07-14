@@ -79,22 +79,16 @@ export function JourneySection() {
               <div
                 key={index}
                 className={cn(
-                  'relative md:flex',
-                  index % 2 === 0 ? 'justify-start' : 'justify-end'
+                  'relative flex items-center',
+                   index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'
                 )}
               >
                 <div
                   className={cn(
                     'md:w-1/2',
-                    index % 2 !== 0 && 'md:text-right md:pl-8'
+                    index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                   )}
                 >
-                  <div className="md:absolute md:top-1/2 md:-translate-y-1/2" style={index % 2 === 0 ? { right: 'calc(50% + 1rem)' } : { left: 'calc(50% + 1rem)' }}>
-                     <span className={cn("roadmap-title text-sm", `roadmap-title-${step.color}`)}>
-                       {step.date}
-                     </span>
-                  </div>
-
                   <div className="relative p-6 rounded-lg bg-card border-l-4 md:border-l-0 md:border-transparent" style={{ borderColor: `hsl(var(--${step.color}))` }}>
                      <div
                       className={cn(
@@ -105,6 +99,9 @@ export function JourneySection() {
                     />
                     <div className="absolute w-3 h-3 rounded-full top-7 -translate-y-1/2 -left-1.5 md:hidden" style={{ backgroundColor: `hsl(var(--${step.color}))` }} />
 
+                    <span className={cn("roadmap-title text-sm", `roadmap-title-${step.color}`)}>
+                       {step.date}
+                     </span>
                     <h4 className="title text-xl font-bold font-headline mb-2">{step.title}</h4>
                     <p className="text-sm text-muted-foreground">{step.description}</p>
                   </div>
