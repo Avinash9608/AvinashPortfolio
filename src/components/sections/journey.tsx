@@ -1,11 +1,9 @@
+
 "use client";
 
 import React from 'react';
-import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import 'react-horizontal-scrolling-menu/dist/styles.css';
-import { ChevronLeft, ChevronRight, GraduationCap, Computer, BookOpen, Globe, BrainCircuit, Code, Rocket, Brain } from 'lucide-react';
+import { GraduationCap, Computer, BookOpen, Globe, BrainCircuit, Code, Rocket, Brain } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
 
 const journeyData = [
   {
@@ -66,33 +64,6 @@ const journeyData = [
   },
 ];
 
-
-const LeftArrow = () => {
-  const { scrollPrev, isFirstItemVisible } = React.useContext(VisibilityContext);
-  return (
-    <button
-      disabled={isFirstItemVisible}
-      onClick={() => scrollPrev()}
-      className="p-2 rounded-full bg-primary/20 hover:bg-primary/40 disabled:opacity-50 transition-all mx-4"
-    >
-      <ChevronLeft className="h-6 w-6 text-primary" />
-    </button>
-  );
-};
-
-const RightArrow = () => {
-  const { scrollNext, isLastItemVisible } = React.useContext(VisibilityContext);
-  return (
-    <button
-      disabled={isLastItemVisible}
-      onClick={() => scrollNext()}
-      className="p-2 rounded-full bg-primary/20 hover:bg-primary/40 disabled:opacity-50 transition-all mx-4"
-    >
-      <ChevronRight className="h-6 w-6 text-primary" />
-    </button>
-  );
-};
-
 export function JourneySection() {
   return (
     <section id="journey" className="roadmap-area bg-secondary py-16 md:py-24">
@@ -101,19 +72,46 @@ export function JourneySection() {
           <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">My Developer Journey</h2>
           <p className="mt-2 text-lg text-muted-foreground">From a student to a software engineer, one step at a time.</p>
         </div>
-        <div className="roadmap-horizontal-container">
-          <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} scrollContainerClassName="pb-8">
+        <div className="relative">
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-1 bg-border/50 hidden md:block" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {journeyData.map((step, index) => (
-              <div key={index} className={cn("roadmap-item", index % 2 !== 0 && "roadmap-item-even")}>
-                <span className={cn("roadmap-title", `roadmap-title-${step.color}`)}>{step.date}</span>
-                <div className="roadmap-content">
-                  <span className={cn("dot", `dot-${step.color}`)}></span>
-                  <h4 className="title">{step.title}</h4>
-                  <span className="text-sm text-muted-foreground">{step.description}</span>
+              <div
+                key={index}
+                className={cn(
+                  'relative md:flex',
+                  index % 2 === 0 ? 'justify-start' : 'justify-end'
+                )}
+              >
+                <div
+                  className={cn(
+                    'md:w-1/2',
+                    index % 2 !== 0 && 'md:text-right md:pl-8'
+                  )}
+                >
+                  <div className="md:absolute md:top-1/2 md:-translate-y-1/2" style={index % 2 === 0 ? { right: 'calc(50% + 1rem)' } : { left: 'calc(50% + 1rem)' }}>
+                     <span className={cn("roadmap-title text-sm", `roadmap-title-${step.color}`)}>
+                       {step.date}
+                     </span>
+                  </div>
+
+                  <div className="relative p-6 rounded-lg bg-card border-l-4 md:border-l-0 md:border-transparent" style={{ borderColor: `hsl(var(--${step.color}))` }}>
+                     <div
+                      className={cn(
+                        'absolute w-4 h-4 rounded-full top-7 -translate-y-1/2 hidden md:block',
+                        `bg-${step.color}`
+                      )}
+                      style={index % 2 === 0 ? { right: '-2.5rem', backgroundColor: `hsl(var(--${step.color}))` } : { left: '-2.5rem', backgroundColor: `hsl(var(--${step.color}))` }}
+                    />
+                    <div className="absolute w-3 h-3 rounded-full top-7 -translate-y-1/2 -left-1.5 md:hidden" style={{ backgroundColor: `hsl(var(--${step.color}))` }} />
+
+                    <h4 className="title text-xl font-bold font-headline mb-2">{step.title}</h4>
+                    <p className="text-sm text-muted-foreground">{step.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
-          </ScrollMenu>
+          </div>
         </div>
       </div>
     </section>
