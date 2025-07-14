@@ -11,7 +11,7 @@ const projects = [
   {
     title: 'Publicity Poster',
     description: 'A platform to generate publicity posters with Nodemailer and Twilio integration.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://plus.unsplash.com/premium_photo-1661604459763-e18e4370e629?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHVibGlzaXR5JTIwcG9zdGVyJTIwYXBwfGVufDB8fDB8fHww',
     tags: ['TypeScript', 'Twilio', 'API', 'Nodemailer'],
     github: 'https://github.com/Avinash9608/Poster.git',
     live: 'https://poster-self.vercel.app/',
@@ -20,7 +20,7 @@ const projects = [
   {
     title: 'Readymate Template',
     description: 'A responsive and ready-to-use website template for various business needs.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://plus.unsplash.com/premium_photo-1661753668576-d7e14f27edf4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGVtcGxhdGV8ZW58MHx8MHx8fDA%3D',
     tags: ['React', 'Template', 'Frontend'],
     github: 'https://github.com/Avinash9608/ReadymateTemplate.git',
     live: 'https://readymate-template-alfd.vercel.app/',
@@ -29,7 +29,7 @@ const projects = [
   {
     title: 'Wedding Landing Page',
     description: 'A beautiful and responsive landing page template for wedding invitations.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://media.istockphoto.com/id/1216462542/photo/saas-software-as-a-service-concept-with-technology-light-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=o3DLzrnlEvgZtzsP3GcVFqNtbkarfIicAEpVaiaWcOk=',
     tags: ['SaaS', 'Template', 'React'],
     github: '#', // Not provided for this one
     live: 'https://wedding-landing-page-amber.vercel.app/',
@@ -38,7 +38,7 @@ const projects = [
   {
     title: 'Blogging Platform',
     description: 'A full-stack blogging website that allows users to create, read, and manage posts.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://plus.unsplash.com/premium_photo-1720744786849-a7412d24ffbf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D',
     tags: ['Full-Stack', 'MongoDB', 'CMS'],
     github: '#',
     live: '#',
@@ -47,7 +47,7 @@ const projects = [
   {
     title: 'GrameenBharat',
     description: 'An e-commerce platform focused on rural products, connecting local artisans to a wider market.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1698864656701-557a5840239b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUwfHxHcmFtZWVuJTIwQmhhcmF0fGVufDB8fDB8fHww',
     tags: ['E-commerce', 'React', 'Node.js'],
     github: '#',
     live: '#',
@@ -56,7 +56,7 @@ const projects = [
     {
     title: 'Online Food Delivery App',
     description: 'A secure food delivery service featuring email validation and password encryption.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMGRlbGl2ZXJ5fGVufDB8fDB8fHww',
     tags: ['React', 'Node.js', 'Security'],
     github: '#',
     live: '#',
