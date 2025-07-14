@@ -12,7 +12,7 @@ const timelineData = [
     icon: <Briefcase className="h-6 w-6" />,
     date: 'Present',
     title: 'Backend Developer Intern',
-    company: 'Self-Employed',
+    company: 'INDTechMark',
     items: [
       'Working with React and Node.js',
       'Building RESTful APIs with Express',
@@ -48,7 +48,7 @@ const timelineData = [
     icon: <GraduationCap className="h-6 w-6" />,
     date: '2020 - 2024',
     title: 'B.Tech in Computer Science',
-    company: 'Purnea College of Engineering',
+    company: 'RGPV University',
     items: [
         'Graduated with a CGPA of 7.95',
         'Strong foundation in CS fundamentals',
