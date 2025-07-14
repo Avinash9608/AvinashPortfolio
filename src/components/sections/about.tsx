@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function AboutSection() {
   return (
-    <section id="about" className="bg-secondary">
+    <section id="about" className="bg-secondary py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 items-center">
           <div className="md:col-span-1 flex justify-center">

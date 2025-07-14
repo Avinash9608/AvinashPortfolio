@@ -15,7 +15,7 @@ const journeySteps = [
 
 export function JourneySection() {
   return (
-    <section id="journey" className="bg-secondary">
+    <section id="journey" className="bg-secondary py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold font-headline tracking-tight text-primary">My Developer Journey</h2>
