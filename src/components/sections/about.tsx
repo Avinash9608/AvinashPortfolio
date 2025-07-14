@@ -16,10 +16,10 @@ export function AboutSection() {
                 <AvatarFallback>AK</AvatarFallback>
               </Avatar>
               <div className="absolute bottom-4 -right-4 bg-background p-2 rounded-full shadow-lg animate-float-less">
-                <Image src="https://placehold.co/48x48.png" data-ai-hint="react logo" alt="React Logo" width={48} height={48} className="rounded-full" />
+                <Image src="https://res.cloudinary.com/dfdtdqumn/image/upload/v1751522151/products/dinner-set-1751522136934.png" data-ai-hint="dinner set" alt="Dinner Set Icon" width={48} height={48} className="rounded-full" />
               </div>
                <div className="absolute top-0 -left-4 bg-background p-2 rounded-full shadow-lg animate-float">
-                <Image src="https://placehold.co/48x48.png" data-ai-hint="node js" alt="Node.js Logo" width={48} height={48} className="rounded-full" />
+                <Image src="https://res.cloudinary.com/dfdtdqumn/image/upload/v1751522151/products/dinner-set-1751522136934.png" data-ai-hint="dinner set" alt="Dinner Set Icon" width={48} height={48} className="rounded-full" />
               </div>
             </div>
           </div>
