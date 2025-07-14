@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Image from 'next/image';
@@ -47,7 +48,7 @@ const projects = [
   {
     title: 'InfiniTech Solutions',
     description: 'A modern and professional website for an IT solutions and services company.',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://media.istockphoto.com/id/1322517295/photo/cyber-security-it-engineer-working-on-protecting-network-against-cyberattack-from-hackers-on.webp?a=1&b=1&s=612x612&w=0&k=20&c=1L_6xPBBtZWrut5U0Vgvt_396Xzlu372qXuTOZpSUms=',
     tags: ['React', 'IT Service', 'Website'],
     github: 'https://github.com/Avinash9608/InfiniTech-Solutions.git',
     live: 'https://infini-tech-solutions.vercel.app/',
