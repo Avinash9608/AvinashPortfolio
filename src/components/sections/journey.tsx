@@ -51,16 +51,16 @@ const journeyData = [
   },
   {
     icon: <Code className="w-5 h-5" />,
-    title: 'Internship Experience',
-    date: 'Year 4',
-    description: 'Applied skills as a backend developer intern, using the MERN stack.',
+    title: 'Full Stack Developer Intern',
+    date: 'Present',
+    description: 'Working as a Full Stack Developer Intern at INDTechMark, applying skills in a professional environment.',
     color: 'primary'
   },
   {
     icon: <Rocket className="w-5 h-5" />,
     title: 'Future Learning',
-    date: 'Present',
-    description: 'Exploring new tech like TypeScript, AI, and other emerging technologies.',
+    date: 'Ongoing',
+    description: 'Continuously exploring new tech like TypeScript, AI, and other emerging technologies.',
     color: 'accent'
   },
 ];
