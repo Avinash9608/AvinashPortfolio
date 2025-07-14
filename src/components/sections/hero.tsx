@@ -3,31 +3,14 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
-
-declare global {
-    interface Window {
-        VanillaTilt: any;
-    }
-}
+import Image from 'next/image';
 
 const roles = ["Software Developer", "UI/UX Enthusiast", "Problem Solver"];
 
 export function HeroSection() {
-    const tiltRef = useRef<HTMLDivElement>(null);
     const typewriterRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
-        if (tiltRef.current && window.VanillaTilt) {
-            window.VanillaTilt.init(tiltRef.current, {
-                max: 5,
-                speed: 300,
-                glare: true,
-                "max-glare": 0.1,
-                perspective: 1000,
-            });
-        }
-        
         let roleIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -57,11 +40,7 @@ export function HeroSection() {
 
         const typingInterval = setInterval(type, isDeleting ? deleteSpeed : typeSpeed);
 
-
         return () => {
-            if (tiltRef.current && (tiltRef.current as any).vanillaTilt) {
-                (tiltRef.current as any).vanillaTilt.destroy();
-            }
             clearInterval(typingInterval);
         };
     }, []);
@@ -72,25 +51,33 @@ export function HeroSection() {
     };
 
     return (
-        <section 
-            ref={tiltRef}
-            className="hero-section"
-        >
+        <section className="hero-section">
             <div className="img-overlay"></div>
-            <div className="text-container">
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white font-headline">Avinash</h1>
-                <div className="subtitle">
-                  <span ref={typewriterRef}></span>
-                  <span className="inline-block animate-pulse">|</span>
+            <div className="content-container">
+                <div className="text-container">
+                    <h1 className="text-7xl md:text-8xl font-bold tracking-tight text-white font-headline">Avinash</h1>
+                    <p className="subtitle">
+                      <span ref={typewriterRef} className="typewriter-text"></span>
+                    </p>
+                    <p className="max-w-xl text-lg text-gray-300 mb-8">
+                        A passionate engineer crafting beautiful and functional web experiences. Welcome to my digital space.
+                    </p>
+                    <Link href="#projects" onClick={handleScrollToProjects}>
+                        <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary hover:border-accent transition-all duration-300">
+                            View My Work
+                        </Button>
+                    </Link>
                 </div>
-                <p className="max-w-xl text-lg text-gray-300 mb-8">
-                    A passionate engineer crafting beautiful and functional web experiences. Welcome to my digital space.
-                </p>
-                <Link href="#projects" onClick={handleScrollToProjects}>
-                    <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary hover:border-accent transition-all duration-300">
-                        View My Work
-                    </Button>
-                </Link>
+                <div className="hero-image-container">
+                    <Image
+                        src="https://res.cloudinary.com/dfdtdqumn/image/upload/v1751812777/twitter-clone/rhexdqmzpzc2v4ifs2uh.jpg"
+                        alt="Avinash Kumar"
+                        width={350}
+                        height={350}
+                        className="hero-image object-cover"
+                        data-ai-hint="profile picture"
+                    />
+                </div>
             </div>
         </section>
     );
