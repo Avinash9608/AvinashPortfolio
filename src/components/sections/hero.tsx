@@ -63,7 +63,7 @@ export function HeroSection() {
                         A passionate engineer crafting beautiful and functional web experiences. Welcome to my digital space.
                     </p>
                     <Link href="#projects" onClick={handleScrollToProjects}>
-                        <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary hover:border-accent transition-all duration-300">
+                        <Button size="lg" variant="default" className="relative overflow-hidden bg-primary text-primary-foreground transition-all duration-300 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 hover:before:translate-x-full">
                             View My Work
                         </Button>
                     </Link>
