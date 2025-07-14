@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Heart } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -12,62 +10,87 @@ declare global {
     }
 }
 
+const roles = ["Software Developer", "UI/UX Enthusiast", "Problem Solver"];
+
 export function HeroSection() {
-    const [likes, setLikes] = useState(0);
-    const [isLiked, setIsLiked] = useState(false);
     const tiltRef = useRef<HTMLDivElement>(null);
+    const typewriterRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
         if (tiltRef.current && window.VanillaTilt) {
             window.VanillaTilt.init(tiltRef.current, {
-                max: 10,
-                speed: 400,
+                max: 5,
+                speed: 300,
                 glare: true,
-                "max-glare": 0.2,
+                "max-glare": 0.1,
                 perspective: 1000,
             });
         }
+        
+        // Typewriter effect
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeSpeed = 150;
+        const deleteSpeed = 100;
+        const delay = 2000;
 
-        return () => {
-             if (tiltRef.current && (tiltRef.current as any).vanillaTilt) {
-                (tiltRef.current as any).vanillaTilt.destroy();
+        const type = () => {
+            const currentRole = roles[roleIndex];
+            if (typewriterRef.current) {
+                 if (isDeleting) {
+                    typewriterRef.current.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typewriterRef.current.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentRole.length) {
+                    setTimeout(() => isDeleting = true, delay);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                }
             }
         };
-    }, []);
 
-    const handleLike = () => {
-        if (!isLiked) {
-            setLikes(likes + 1);
-            setIsLiked(true);
-        } else {
-            setLikes(likes - 1);
-            setIsLiked(false);
-        }
+        const typingInterval = setInterval(type, isDeleting ? deleteSpeed : typeSpeed);
+
+
+        return () => {
+            if (tiltRef.current && (tiltRef.current as any).vanillaTilt) {
+                (tiltRef.current as any).vanillaTilt.destroy();
+            }
+            clearInterval(typingInterval);
+        };
+    }, []);
+    
+    const handleScrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
         <section 
             ref={tiltRef}
-            className="hero-section"
+            className="hero-section font-headline"
         >
             <div className="img-overlay"></div>
-            <div className="text-section">
-                <h1>Moi & L'Amant</h1>
-                <p>L’accès au site avec abonnement vous permet d’accéder à tous les contenus et archives du Monde.</p>
-                <Link href="#">voir plus</Link>
-                <div className="absolute top-4 right-4 z-20">
-                    <Button
-                        variant="ghost"
-                        className="flex items-center gap-2 text-white group"
-                        onClick={handleLike}
-                    >
-                        <Heart className={cn(
-                            "w-8 h-8 text-red-500 transition-all duration-300 group-hover:scale-110",
-                            isLiked ? "fill-current" : "fill-none stroke-current"
-                        )} />
-                        <span className="font-bold text-lg">{likes}</span>
-                    </Button>
+            <div className="text-container">
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">Hi, I'm Avinash Kumar</h1>
+                <div className="subtitle">
+                  <span ref={typewriterRef}></span>
+                  <span className="inline-block animate-pulse">|</span>
                 </div>
+                <p className="max-w-xl text-lg text-gray-300 mb-8">
+                    A passionate engineer crafting beautiful and functional web experiences. Welcome to my digital space.
+                </p>
+                <Link href="#projects" onClick={handleScrollToProjects}>
+                    <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground border-2 border-primary hover:border-accent transition-all duration-300">
+                        View My Work
+                    </Button>
+                </Link>
             </div>
         </section>
     );
