@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 declare global {
     interface Window {
@@ -27,7 +28,6 @@ export function HeroSection() {
             });
         }
         
-        // Typewriter effect
         let roleIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -74,11 +74,11 @@ export function HeroSection() {
     return (
         <section 
             ref={tiltRef}
-            className="hero-section font-headline"
+            className="hero-section"
         >
             <div className="img-overlay"></div>
             <div className="text-container">
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">Hi, I'm Avinash Kumar</h1>
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white font-headline">Avinash</h1>
                 <div className="subtitle">
                   <span ref={typewriterRef}></span>
                   <span className="inline-block animate-pulse">|</span>

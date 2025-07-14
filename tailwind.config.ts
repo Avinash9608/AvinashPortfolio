@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-inter)', 'sans-serif'],
-        headline: ['var(--font-space-grotesk)', 'sans-serif'],
+        body: ['"EB Garamond"', 'serif'],
+        headline: ['Caveat', 'cursive'],
         code: ['monospace'],
       },
       colors: {
