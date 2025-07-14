@@ -1,9 +1,10 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowDown, Send } from 'lucide-react';
+import { ArrowDown, Send, Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const roles = ["A Software Engineer.", "A Web Developer.", "A UI/UX Enthusiast."];
@@ -11,6 +12,8 @@ const roles = ["A Software Engineer.", "A Web Developer.", "A UI/UX Enthusiast."
 export function HeroSection() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [typingAnimationKey, setTypingAnimationKey] = useState(0);
+  const [likes, setLikes] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,6 +27,16 @@ export function HeroSection() {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleLike = () => {
+    if (!isLiked) {
+      setLikes(likes + 1);
+      setIsLiked(true);
+    } else {
+        setLikes(likes - 1);
+        setIsLiked(false);
+    }
   };
 
   return (
@@ -58,6 +71,19 @@ export function HeroSection() {
             </Button>
           </Link>
         </div>
+      </div>
+      <div className="absolute top-4 right-4 z-20">
+        <Button
+            variant="ghost"
+            className="flex items-center gap-2 text-muted-foreground group"
+            onClick={handleLike}
+        >
+            <Heart className={cn(
+                "w-6 h-6 text-red-500 transition-all duration-300 group-hover:scale-110",
+                isLiked ? "fill-current" : "fill-none"
+            )} />
+            <span className="font-bold text-lg">{likes}</span>
+        </Button>
       </div>
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
         <ArrowDown className="h-8 w-8 text-muted-foreground animate-bounce" />
