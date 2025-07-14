@@ -43,7 +43,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 text-2xl font-bold font-headline">
             <Code className="w-8 h-8 text-primary" />
-            <span className="text-primary">Avinash</span>
+            <span className="text-accent">Avinash</span>
             <span className={cn(isScrolled ? 'text-foreground' : 'text-white')}>Kumar</span>
           </Link>
 
