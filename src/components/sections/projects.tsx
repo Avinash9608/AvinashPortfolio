@@ -15,7 +15,7 @@ const projects = [
   {
     title: 'Ecommerce (Furniture Shop)',
     description: 'A fully functional e-commerce platform for a furniture shop.',
-    image: 'https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
+    image: 'https://plus.unsplash.com/premium_photo-1684785618727-378a3a5e91c5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
     tags: ['TypeScript', 'MongoDB', 'API Routes'],
     github: 'https://github.com/Avinash9608/ShyamFurniture.git',
     live: 'https://shyam-furniture-rfzy.vercel.app/',
