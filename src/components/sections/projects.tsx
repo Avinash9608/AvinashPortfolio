@@ -13,6 +13,33 @@ import { useInView } from 'react-intersection-observer';
 
 const projects = [
   {
+    title: 'Ecommerce (Furniture Shop)',
+    description: 'A fully functional e-commerce platform for a furniture shop.',
+    image: 'https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
+    tags: ['TypeScript', 'MongoDB', 'API Routes'],
+    github: 'https://github.com/Avinash9608/ShyamFurniture.git',
+    live: 'https://shyam-furniture-rfzy.vercel.app/',
+    aiHint: 'ecommerce furniture'
+  },
+  {
+    title: 'Restaurant Application',
+    description: 'A web application for a restaurant, featuring order and reservation capabilities.',
+    image: 'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZhc3Rmb29kfGVufDB8fDB8fHww',
+    tags: ['TypeScript', 'WhatsApp', 'Nodemailer'],
+    github: 'https://github.com/Avinash9608/LakhnaRestaurant.git',
+    live: 'https://lakhna-restaurant.vercel.app/',
+    aiHint: 'restaurant food'
+  },
+  {
+    title: 'Bakery Shop Application',
+    description: 'An online presence for a bakery, with product showcases and contact features.',
+    image: 'https://images.unsplash.com/photo-1621857426350-ddab819cf0cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FrZSUyMHNob3B8ZW58MHx8MHx8fDA%3D',
+    tags: ['TypeScript', 'Twilio', 'API'],
+    github: 'https://github.com/Avinash9608/LuxmiSweets.git',
+    live: 'https://luxmi-sweets.vercel.app/',
+    aiHint: 'bakery shop'
+  },
+  {
     title: 'Publicity Poster',
     description: 'A platform to generate publicity posters with Nodemailer and Twilio integration.',
     image: 'https://plus.unsplash.com/premium_photo-1661604459763-e18e4370e629?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHVibGlzaXR5JTIwcG9zdGVyJTIwYXBwfGVufDB8fDB8fHww',
@@ -199,7 +226,7 @@ export function ProjectsSection() {
         <div className="mt-20">
             <h3 className="text-2xl font-bold font-headline text-center mb-4">Currently Working On</h3>
             <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-8">
-              Alongside my projects, I'm actively exploring the latest AI technologies to enhance my backend development skills and build smarter, more efficient applications.
+              Alongside my projects, I&apos;m actively exploring the latest AI technologies to enhance my backend development skills and build smarter, more efficient applications.
             </p>
             <div className="max-w-2xl mx-auto space-y-8">
                 {ongoingProjects.map((project, index) => (
