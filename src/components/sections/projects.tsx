@@ -1,15 +1,15 @@
 
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+import { Card, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink, Wrench } from 'lucide-react';
 import Link from 'next/link';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { useInView } from 'react-intersection-observer';
 
 const projects = [
   {
@@ -108,28 +108,29 @@ const ongoingProjects = [
     { 
         name: 'Blentops Website Transformation', 
         description: 'Migrating from HTML to React and building a new backend.',
-        progress: 2 
+        progress: 30 
+    },
+    { 
+        name: 'F1 Fashion Hub (ECommerce for clothing shop)',
+        description: 'Developing a full-stack e-commerce platform for a fashion brand.',
+        progress: 45
     },
 ];
 
-const AnimatedProgressCard = ({ project }: { project: { name: string, description: string, progress: number } }) => {
-  const [progress, setProgress] = useState(0);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
-
-  useEffect(() => {
+const AnimatedProgressCard = ({ project, inView }: { project: { name: string, description: string, progress: number }, inView: boolean }) => {
+  const [progress, setProgress] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+  
+  React.useEffect(() => {
     if (inView) {
       const timer = setTimeout(() => setProgress(project.progress), 300);
       return () => clearTimeout(timer);
     }
   }, [inView, project.progress]);
 
-  const [count, setCount] = useState(0);
-  useEffect(() => {
+  React.useEffect(() => {
     if (inView) {
-      const step = project.progress / 50; // Animate over 50 steps
+      const step = project.progress / 50; 
       let currentCount = 0;
       const counter = setInterval(() => {
         currentCount += step;
@@ -139,13 +140,13 @@ const AnimatedProgressCard = ({ project }: { project: { name: string, descriptio
         } else {
           setCount(Math.ceil(currentCount));
         }
-      }, 20); // Adjust interval for speed
+      }, 20); 
       return () => clearInterval(counter);
     }
   }, [inView, project.progress]);
 
   return (
-    <div ref={ref} className="progress-card-wrapper">
+    <div className="progress-card-wrapper">
       <div className="progress-card">
         <div className="flex items-center gap-4">
           <Wrench className="w-8 h-8 text-primary" />
@@ -163,6 +164,57 @@ const AnimatedProgressCard = ({ project }: { project: { name: string, descriptio
   );
 };
 
+const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
+  <Card className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <div className="relative">
+      <Image 
+        src={project.image} 
+        alt={project.title} 
+        width={600} 
+        height={400} 
+        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+        data-ai-hint={project.aiHint} 
+      />
+      <div className="absolute inset-0 bg-black/50 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+    </div>
+    
+    <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+      <CardTitle className="font-headline text-xl md:text-2xl text-white mb-2">{project.title}</CardTitle>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {project.tags.map(tag => <Badge key={tag} variant="secondary" className="backdrop-blur-sm">{tag}</Badge>)}
+      </div>
+
+      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <p className="text-sm text-gray-200 mb-4">{project.description}</p>
+        <div className="flex justify-start gap-4">
+          <Link href={project.github} target="_blank">
+            <Button variant="outline" size="sm" className="bg-white/10 text-white border-white/20 hover:bg-white/20" disabled={project.github === '#'}>
+              <Github className="mr-2 h-4 w-4" /> GitHub
+            </Button>
+          </Link>
+          <Link href={project.live} target="_blank">
+            <Button variant="default" size="sm" disabled={project.live === '#'}>
+              Live Demo <ExternalLink className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  </Card>
+);
+
+const OngoingProject = ({ project }: { project: typeof ongoingProjects[0] }) => {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.5,
+    });
+
+    return (
+        <div ref={ref}>
+            <AnimatedProgressCard project={project} inView={inView} />
+        </div>
+    );
+};
 
 export function ProjectsSection() {
   return (
@@ -175,42 +227,7 @@ export function ProjectsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="relative">
-                <Image 
-                  src={project.image} 
-                  alt={project.title} 
-                  width={600} 
-                  height={400} 
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                  data-ai-hint={project.aiHint} 
-                />
-                <div className="absolute inset-0 bg-black/50 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-              </div>
-              
-              <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <CardTitle className="font-headline text-2xl text-white mb-2">{project.title}</CardTitle>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map(tag => <Badge key={tag} variant="secondary" className="backdrop-blur-sm">{tag}</Badge>)}
-                </div>
-
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm text-gray-200 mb-4">{project.description}</p>
-                  <div className="flex justify-start gap-4">
-                    <Link href={project.github} target="_blank">
-                      <Button variant="outline" size="sm" className="bg-white/10 text-white border-white/20 hover:bg-white/20" disabled={project.github === '#'}>
-                        <Github className="mr-2 h-4 w-4" /> GitHub
-                      </Button>
-                    </Link>
-                    <Link href={project.live} target="_blank">
-                      <Button variant="default" size="sm" disabled={project.live === '#'}>
-                        Live Demo <ExternalLink className="ml-2 h-4 w-4" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </Card>
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
 
@@ -237,13 +254,13 @@ export function ProjectsSection() {
         </div>
 
         <div className="mt-20">
-            <h3 className="text-2xl font-bold font-headline text-center mb-4">Currently Working On</h3>
+            <h3 className="text-2xl font-bold font-headline text-center mb-4 text-primary">Currently Working On</h3>
             <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-8">
               Alongside my projects, I&apos;m actively exploring the latest AI technologies to enhance my backend development skills and build smarter, more efficient applications.
             </p>
             <div className="max-w-2xl mx-auto space-y-8">
                 {ongoingProjects.map((project, index) => (
-                    <AnimatedProgressCard key={index} project={project} />
+                    <OngoingProject key={index} project={project} />
                 ))}
             </div>
         </div>
