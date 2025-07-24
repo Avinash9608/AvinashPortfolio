@@ -48,6 +48,15 @@ const projects = [
     live: 'https://poster-self.vercel.app/',
     aiHint: 'publicity poster'
   },
+   {
+    title: 'Appointment Booking in Saloon',
+    description: 'A web application for booking appointments at a saloon.',
+    image: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Fsb29ufGVufDB8fDB8fHww',
+    tags: ['React', 'Booking', 'Next.js'],
+    github: 'https://github.com/Avinash9608/GroomHaus.git',
+    live: 'https://groom-haus.vercel.app/',
+    aiHint: 'saloon appointment'
+  },
   {
     title: 'Readymate Template',
     description: 'A responsive and ready-to-use website template for various business needs.',
@@ -242,4 +251,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-
