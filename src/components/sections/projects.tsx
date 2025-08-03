@@ -13,6 +13,24 @@ import { Badge } from '@/components/ui/badge';
 
 const projects = [
   {
+    title: 'Apex Velocity',
+    description: 'ECommerce for clothing shop with animations and a robust API.',
+    image: 'https://images.unsplash.com/photo-1477901492169-d59e6428fc90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGglMjBlY29tbWVyY2V8ZW58MHx8MHx8fDA%3D',
+    tags: ['TypeScript', 'Animation', 'API'],
+    github: 'https://github.com/Avinash9608/Apex-Velocity.git',
+    live: 'https://apex-velocity.vercel.app/',
+    aiHint: 'clothing ecommerce'
+  },
+  {
+    title: 'LinkedIn Clone',
+    description: 'A full-stack clone of the popular professional networking site, LinkedIn.',
+    image: 'https://images.unsplash.com/photo-1611944212129-29977ae1398c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlua2VkaW58ZW58MHx8MHx8fDA%3D',
+    tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+    github: 'https://github.com/Avinash9608/linkedin-clone-client.git',
+    live: 'https://linkedin-clone-client.vercel.app/',
+    aiHint: 'social network'
+  },
+  {
     title: 'Ecommerce (Furniture Shop)',
     description: 'A fully functional e-commerce platform for a furniture shop.',
     image: 'https://plus.unsplash.com/premium_photo-1684785618727-378a3a5e91c5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
@@ -33,22 +51,13 @@ const projects = [
   {
     title: 'Bakery Shop Application',
     description: 'An online presence for a bakery, with product showcases and contact features.',
-    image: 'https://images.unsplash.com/photo-1621857426350-ddab819cf0cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FrZSUyMHNob3B8ZW58MHx8MHx8MA%3D%3D',
+    image: 'https://images.unsplash.com/photo-1621857426350-ddab819cf0cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FrZSUyMHNob3B8ZW58MHx8MHx8fDA%3D',
     tags: ['TypeScript', 'Twilio', 'API'],
     github: 'https://github.com/Avinash9608/LuxmiSweets.git',
     live: 'https://luxmi-sweets.vercel.app/',
     aiHint: 'bakery shop'
   },
   {
-    title: 'Publicity Poster',
-    description: 'A platform to generate publicity posters with Nodemailer and Twilio integration.',
-    image: 'https://plus.unsplash.com/premium_photo-1661604459763-e18e4370e629?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHVibGlzaXR5JTIwcG9zdGVyJTIwYXBwfGVufDB8fDB8fHww',
-    tags: ['TypeScript', 'Twilio', 'API', 'Nodemailer'],
-    github: 'https://github.com/Avinash9608/Poster.git',
-    live: 'https://poster-self.vercel.app/',
-    aiHint: 'publicity poster'
-  },
-   {
     title: 'Appointment Booking in Saloon',
     description: 'A web application for booking appointments at a saloon.',
     image: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Fsb29ufGVufDB8fDB8fHww',
@@ -56,51 +65,6 @@ const projects = [
     github: 'https://github.com/Avinash9608/GroomHaus.git',
     live: 'https://groom-haus.vercel.app/',
     aiHint: 'saloon appointment'
-  },
-  {
-    title: 'Readymate Template',
-    description: 'A responsive and ready-to-use website template for various business needs.',
-    image: 'https://plus.unsplash.com/premium_photo-1661753668576-d7e14f27edf4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGVtcGxhdGV8ZW58MHx8MHx8fDA%3D',
-    tags: ['React', 'Template', 'Frontend'],
-    github: 'https://github.com/Avinash9608/ReadymateTemplate.git',
-    live: 'https://readymate-template-alfd.vercel.app/',
-    aiHint: 'website template'
-  },
-  {
-    title: 'Wedding Landing Page',
-    description: 'A beautiful and responsive landing page template for wedding invitations.',
-    image: 'https://media.istockphoto.com/id/1216462542/photo/saas-software-as-a-service-concept-with-technology-light-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=o3DLzrnlEvgZtzsP3GcVFqNtbkarfIicAEpVaiaWcOk=',
-    tags: ['SaaS', 'Template', 'React'],
-    github: '#', // Not provided for this one
-    live: 'https://wedding-landing-page-amber.vercel.app/',
-    aiHint: 'wedding website'
-  },
-  {
-    title: 'Blogging Platform',
-    description: 'A full-stack blogging website that allows users to create, read, and manage posts.',
-    image: 'https://plus.unsplash.com/premium_photo-1720744786849-a7412d24ffbf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D',
-    tags: ['Full-Stack', 'MongoDB', 'CMS'],
-    github: '#',
-    live: 'https://studio--blogger-showcase.us-central1.hosted.app/',
-    aiHint: 'blog website'
-  },
-  {
-    title: 'InfiniTech Solutions',
-    description: 'A modern and professional website for an IT solutions and services company.',
-    image: 'https://media.istockphoto.com/id/1322517295/photo/cyber-security-it-engineer-working-on-protecting-network-against-cyberattack-from-hackers-on.webp?a=1&b=1&s=612x612&w=0&k=20&c=1L_6xPBBtZWrut5U0Vgvt_396Xzlu372qXuTOZpSUms=',
-    tags: ['React', 'IT Service', 'Website'],
-    github: 'https://github.com/Avinash9608/InfiniTech-Solutions.git',
-    live: 'https://infini-tech-solutions.vercel.app/',
-    aiHint: 'IT solutions'
-  },
-    {
-    title: 'Online Food Delivery App',
-    description: 'A secure food delivery service featuring email validation and password encryption.',
-    image: 'https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMGRlbGl2ZXJ5fGVufDB8fDB8fHww',
-    tags: ['React', 'Node.js', 'Security'],
-    github: '#',
-    live: '#',
-    aiHint: 'food delivery'
   },
 ];
 
