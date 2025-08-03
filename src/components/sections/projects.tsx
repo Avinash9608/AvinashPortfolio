@@ -75,9 +75,9 @@ const ongoingProjects = [
         progress: 30 
     },
     { 
-        name: 'F1 Fashion Hub (ECommerce for clothing shop)',
-        description: 'Developing a full-stack e-commerce platform for a fashion brand.',
-        progress: 45
+        name: 'Generative AI Progress',
+        description: 'Exploring OpenAI, LLMs, GPT architecture, TensorFlow, and deep learning workflows to build the future of intelligent systems.',
+        progress: 10
     },
 ];
 
