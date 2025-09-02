@@ -822,3 +822,15 @@ body {
         font-size: 1.25rem;
     }
 }
+
+/* Hiring Challenges Section */
+.challenge-card {
+  border-left: 4px solid hsl(var(--primary));
+}
+
+.challenge-icon-wrapper {
+    background-color: hsl(var(--primary) / 0.1);
+    padding: 0.75rem;
+    border-radius: 9999px;
+    display: inline-flex;
+}
