@@ -70,6 +70,11 @@ const projects = [
 
 const ongoingProjects = [
     { 
+        name: 'Blentops Website Transformation', 
+        description: 'Migrating a legacy HTML site to a modern React frontend with a new Node.js backend. Backend is 100% complete, frontend is 20% complete.',
+        progress: 70 
+    },
+    { 
         name: 'ChatGPT-style Conversational App', 
         description: 'Built an LLM-powered chat interface with message streaming, conversation state, and prompt management. Implemented role-based prompts, temperature/top-p controls, and token usage tracking. Added session persistence, rate limiting, and error/backoff handling for API stability.',
         progress: 100 
