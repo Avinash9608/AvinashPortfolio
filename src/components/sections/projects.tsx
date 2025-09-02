@@ -70,14 +70,14 @@ const projects = [
 
 const ongoingProjects = [
     { 
-        name: 'Blentops Website Transformation', 
-        description: 'Migrating from HTML to React and building a new backend.',
-        progress: 30 
+        name: 'ChatGPT-style Conversational App', 
+        description: 'Built an LLM-powered chat interface with message streaming, conversation state, and prompt management. Implemented role-based prompts, temperature/top-p controls, and token usage tracking. Added session persistence, rate limiting, and error/backoff handling for API stability.',
+        progress: 100 
     },
     { 
-        name: 'Generative AI Progress',
-        description: 'Exploring OpenAI, LLMs, GPT architecture, TensorFlow, and deep learning workflows to build the future of intelligent systems.',
-        progress: 10
+        name: 'PDF Q&A (RAG over Documents)',
+        description: 'Implemented a retrieval-augmented generation pipeline with text extraction, semantic chunking, and a vector store for fast retrieval. The query flow uses top-k chunk retrieval to provide context-bounded LLM answers with cited spans.',
+        progress: 100
     },
 ];
 
@@ -220,7 +220,7 @@ export function ProjectsSection() {
         <div className="mt-20">
             <h3 className="text-2xl font-bold font-headline text-center mb-4 text-primary">Currently Working On</h3>
             <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-8">
-              Alongside my projects, I&apos;m actively exploring the latest AI technologies to enhance my backend development skills and build smarter, more efficient applications.
+              Delivered two production-ready prototypes demonstrating LLM chat and document-grounded Q&A. Verified retrieval quality with top-k accuracy checks, similarity scores, and manual spot-evaluation of answers. Designed for scalability and observability.
             </p>
             <div className="max-w-2xl mx-auto space-y-8">
                 {ongoingProjects.map((project, index) => (
