@@ -31,6 +31,41 @@ const certifications = [
     issuer: 'Certificate of Completion',
     url: 'https://drive.google.com/file/d/1x48XlRAtmSsv7zBue7qVTe4FdeQ0GvHS/view?usp=sharing',
   },
+  {
+    title: 'Machine Learning',
+    issuer: 'Great Learning',
+    url: 'https://drive.google.com/file/d/1v9kOIcYq3lTmsE1ZamXXX53u98wQfr6t/view?usp=sharing',
+  },
+  {
+    title: 'Node Js',
+    issuer: 'Great Learning',
+    url: 'https://drive.google.com/file/d/1vUBCERnD4yojq2CnzCyxEn8ardTclxF5/view?usp=sharing',
+  },
+  {
+    title: 'Ethical Hacking',
+    issuer: 'Great Learning',
+    url: 'https://drive.google.com/file/d/1vU0xF941C90zaczZGJg6qwHnlbP8KrCr/view?usp=sharing',
+  },
+  {
+    title: 'Cyber Security',
+    issuer: 'Great Learning',
+    url: 'https://drive.google.com/file/d/1vRwteIOSDqgBGDOq3x4_F9WEYyCS_qWR/view?usp=sharing',
+  },
+  {
+    title: 'AWS',
+    issuer: 'Great Learning',
+    url: 'https://drive.google.com/file/d/1vekXOQ3HWc7wko8n38W7EkQ03Spskt5X/view?usp=sharing',
+  },
+  {
+    title: 'Artificial Inteligence',
+    issuer: 'Great Learning',
+    url: 'https://drive.google.com/file/d/1vYBoRKV6ih0OC4ScLKdS0MbSAxai4leK/view?usp=sharing',
+  },
+  {
+    title: 'API',
+    issuer: 'Great Learning',
+    url: 'https://drive.google.com/file/d/1vowMds8ApLDsF4wYjY-K3fswaSicOutL/view?usp=sharing',
+  },
 ];
 
 export function CertificationsSection() {
