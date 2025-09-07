@@ -87,12 +87,12 @@ const ongoingProjects = [
     {
         name: 'Linux Command-Line Proficiency',
         description: 'Gaining hands-on experience with Linux OS, including learning and practicing essential Linux commands.',
-        progress: 100
+        progress: 50
     },
     {
         name: 'Advanced SQL Database Skills',
         description: 'Enhancing database knowledge by understanding and applying SQL commands effectively.',
-        progress: 100
+        progress: 50
     },
 ];
 
