@@ -69,19 +69,29 @@ const projects = [
 ];
 
 const ongoingProjects = [
-    { 
-        name: 'Blentops Website Transformation', 
+    {
+        name: 'Blentops Website Transformation',
         description: 'Migrating a legacy HTML site to a modern React frontend with a new Node.js backend. Backend is 100% complete, frontend is 20% complete.',
-        progress: 70 
+        progress: 70
     },
-    { 
-        name: 'ChatGPT-style Conversational App', 
+    {
+        name: 'ChatGPT-style Conversational App',
         description: 'Built an LLM-powered chat interface with message streaming, conversation state, and prompt management. Implemented role-based prompts, temperature/top-p controls, and token usage tracking. Added session persistence, rate limiting, and error/backoff handling for API stability.',
-        progress: 100 
+        progress: 100
     },
-    { 
+    {
         name: 'PDF Q&A (RAG over Documents)',
         description: 'Implemented a retrieval-augmented generation pipeline with text extraction, semantic chunking, and a vector store for fast retrieval. The query flow uses top-k chunk retrieval to provide context-bounded LLM answers with cited spans.',
+        progress: 100
+    },
+    {
+        name: 'Linux Command-Line Proficiency',
+        description: 'Gaining hands-on experience with Linux OS, including learning and practicing essential Linux commands.',
+        progress: 100
+    },
+    {
+        name: 'Advanced SQL Database Skills',
+        description: 'Enhancing database knowledge by understanding and applying SQL commands effectively.',
         progress: 100
     },
 ];
@@ -99,6 +109,10 @@ const AnimatedProgressCard = ({ project, inView }: { project: { name: string, de
 
   React.useEffect(() => {
     if (inView) {
+      if (project.progress === 100) {
+        setCount(100);
+        return;
+      }
       const step = project.progress / 50; 
       let currentCount = 0;
       const counter = setInterval(() => {
